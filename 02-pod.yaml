@@ -5,7 +5,7 @@ metadata:
   namespace: roboshop
 spec:
   containers:
-  - name: name
+  - name: nginx
     image: nginx
     # ports:  # By default this will open port
-    # - containerPort: 80
+    # - containerPort: 80 
