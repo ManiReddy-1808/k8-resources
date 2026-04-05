@@ -1,0 +1,14 @@
+aptVersion: v1
+kind: Service
+metadata:
+  name: nginx-nodeport
+spec:
+  type: NodePort
+  selector:
+    project: roboshop
+    environment: dev
+    component: frontend
+  ports:
+  - protocol: TCP
+    port: 80  # Service Port
+    targetPort: 80 # Container port
