@@ -1,0 +1,25 @@
+apiVersion: vapps/v1
+kind: ReplicaSet
+metadata:
+  name: nginx-rs
+  labels:  # These labels are for RS
+    project: roboshop
+    purpose: rs-demo
+    tier: frontend
+spec:
+  replicas: 3
+  selector: 
+    matchLabels: # Using these labels RS select's the POD
+      project: roboshop
+      environment: dev
+      component: frontend
+  template: # This is pod definition, pod is subeset of RS
+    metadata:
+      labels:
+        project: roboshop
+        environment: dev
+        component: frontend
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
