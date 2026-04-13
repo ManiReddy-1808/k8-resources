@@ -46,3 +46,18 @@ spec:
     port: 80 # Service port
     targetPort: 80 # Container port
 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-headless
+spec:
+  clusterIP: None
+  selector:
+    project: roboshop
+    component: frontend
+  ports:
+  - protocol: TCP
+    port: 80 # Service port
+    targetPort: 80 # Container port
+
