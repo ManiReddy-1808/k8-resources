@@ -6,11 +6,11 @@ spec:
   accessModes:
   - ReadWriteOnce
   capacity:
-    storage: 5Gi # should be less than or equal to your disk size
+    storage: 2Gi # should be less than or equal to your disk size
   csi:
     driver: ebs.csi.aws.com
     fsType: ext4
-    volumeHandle: vol-022625736c20797ed # volume id of the ebs volume
+    volumeHandle:  vol-00b894def61120109 # volume id of the ebs volume
 
 ---
 apiVersion: v1
@@ -39,7 +39,7 @@ spec:
     - name: html-data
       mountPath: /usr/share/nginx/html
   nodeSelector:
-    topology.kubernetes.io/zone: us-east-1d
+    topology.kubernetes.io/zone: us-east-1d # My Disk in us-east-1d zone
   volumes:
   - name: html-data
     persistentVolumeClaim:
